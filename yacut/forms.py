@@ -1,19 +1,30 @@
-# Опишите форму и валидаторы полей форм. Форма должна содержать поля:
-# original_link — поле для оригинальной длинной ссылки,
-# custom_id — поле для пользовательского варианта короткого идентификатора.
-
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, URLField
-from wtforms.validators import DataRequired, Length, Optional
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired, Length, Optional, URL, Regexp
 
 
-class YacutForm(FlaskForm):
+class URLMapForm(FlaskForm):
     original_link = StringField(
-        'Ссылка',
-        validators=[DataRequired(message='Обязательное поле')]
+        'Длинная ссылка',
+        validators=[
+            DataRequired(message='Обязательное поле'),
+            Length(1, 256),
+            URL()
+        ]
     )
     custom_id = StringField(
         'Короткая ссылка',
-        validators=[Length(1, 16)]
+        validators=[
+            Length(1, 16),
+            Optional(),
+            Regexp(
+                regex=r'^[a-zA-Z0-9]{6}$',
+                message=(
+                    'Будьте внимательны. \n'
+                    'Можно использовать только латиницу с '
+                    'заглавными и прописными буквами, а так же цифры.'
+                )
+            )
+        ]
     )
     submit = SubmitField('Создать')
