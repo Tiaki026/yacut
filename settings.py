@@ -8,3 +8,12 @@ class Config(object):
 
 
 CHAR_POOL = ascii_letters + digits
+BASE_URL = 'http://localhost/'
+INDEX = 'index.html'
+URL_ALLREADY_EXIST = 'Предложенный вариант короткой ссылки уже существует.'
+WRONG_NAME_SHORT_URL = 'Указано недопустимое имя для короткой ссылки'
+WITHOUT_BODY = 'Отсутствует тело запроса'
+WRONG_ID = 'Указанный id не найден'
+REQUIRED_FIELD = '"url" является обязательным полем!'
+SHORT_LENGTH_URL = 16
+LONG_LENGHT_URL = 256

@@ -1,19 +1,8 @@
-from flask import render_template, jsonify
+from typing import Dict, Literal, Tuple
+
+from flask import Response, jsonify, render_template
 
 from . import app, db
-
-
-@app.errorhandler(404)
-def page_not_found(error):
-    """Обработчик ошибки 404."""
-    return render_template('404.html'), 404
-
-
-@app.errorhandler(500)
-def internal_error(error):
-    """Обработчик ошибки 500."""
-    db.session.rollback()
-    return render_template('500.html'), 500
 
 
 class InvalidAPIUsage(Exception):
@@ -26,13 +15,25 @@ class InvalidAPIUsage(Exception):
         if status_code is not None:
             self.status_code = status_code
 
-    def to_dict(self):
+    def to_dict(self) -> Dict[str, str]:
         """Метод для сериализации переданного сообщения об ошибке."""
         return dict(message=self.message)
 
 
 @app.errorhandler(InvalidAPIUsage)
-def invalid_api_usage(error):
+def invalid_api_usage(error) -> Tuple[Response, int]:
     """Обработчик кастомного исключения для API."""
-    # Возвращает в ответе текст ошибки и статус-код:
     return jsonify(error.to_dict()), error.status_code
+
+
+@app.errorhandler(404)
+def page_not_found(error) -> tuple[Response, Literal[404]]:
+    """Обработчик ошибки 404."""
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_error(error) -> tuple[Response, Literal[500]]:
+    """Обработчик ошибки 500."""
+    db.session.rollback()
+    return render_template('500.html'), 500
