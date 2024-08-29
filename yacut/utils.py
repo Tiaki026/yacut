@@ -39,41 +39,48 @@ def api_add_url_utils(data) -> str:
 
     if 'custom_id' not in data or data['custom_id'] is None:
         data['custom_id'] = get_unique_short_id()
-    custom_id = data['custom_id']
-    if len(custom_id) > SHORT_LENGTH_URL or not char_pool(custom_id):
+
+    custom_url = data['custom_id']
+
+    if len(custom_url) > SHORT_LENGTH_URL or not char_pool(custom_url):
         raise InvalidAPIUsage(WRONG_NAME_SHORT_URL, 400)
 
-    if short_url(custom_id):
+    if short_url(data['custom_id']):
         raise InvalidAPIUsage(URL_ALLREADY_EXIST, 400)
-    return custom_id
+
+    return custom_url
 
 
 def api_get_url_utils(url):
     """Утилита для обработки логики API представления get_url."""
     if url is None:
+
         raise InvalidAPIUsage(WRONG_ID, 404)
 
 
 def index_view_utils(obj, db) -> Union[str, None]:
     """Утилита для обработки логики представления index_view."""
     if obj.validate_on_submit():
+
         original_link = obj.original_link.data
-        custom_id = obj.custom_id.data
-        if short_url(custom_id):
+        short_link = obj.custom_id.data
+
+        if short_url(short_link):
             flash(URL_ALLREADY_EXIST)
             return render_template(INDEX, form=obj)
 
-        if custom_id and not char_pool(custom_id):
+        if short_link and not char_pool(short_link):
             flash(WRONG_NAME_SHORT_URL)
             return render_template(INDEX, form=obj)
 
-        if not custom_id:
-            custom_id = get_unique_short_id()
-            while URLMap.query.filter_by(short=custom_id).first():
-                custom_id = get_unique_short_id()
+        if not short_link:
+            short_link = get_unique_short_id()
+            while URLMap.query.filter_by(short=short_link).first():
+                short_link = get_unique_short_id()
+
         url_map = URLMap(
             original=original_link,
-            short=custom_id,
+            short=short_link,
         )
         db.session.add(url_map)
         db.session.commit()
@@ -83,4 +90,5 @@ def index_view_utils(obj, db) -> Union[str, None]:
             short_url=BASE_URL+url_map.short,
             original_link=url_map.original
         )
+
     return None

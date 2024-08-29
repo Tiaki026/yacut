@@ -24,4 +24,5 @@ def index_view() -> str:
 def redirect_short_to_original(short_id: str) -> Response:
     """Переадресация с короткой на длинную ссылку."""
     resutl = URLMap.query.filter_by(short=short_id).first_or_404().original
+
     return redirect(resutl)
