@@ -10,8 +10,6 @@
   - [Трудности возникшие в работе](https://github.com/Tiaki026/yacut?tab=readme-ov-file#трудности-возникшие-в-работе)
 - [:computer: Стек технологий](https://github.com/Tiaki026/yacut?tab=readme-ov-file#computer-стек-технологий)
 - [:page_with_curl: Как воспользоваться проектом](https://github.com/Tiaki026/yacut#page_with_curl-как-воспользоваться-проектом)
-  - [Подготовка проекта](https://github.com/Tiaki026/yacut?tab=readme-ov-file#page_with_curl-как-воспользоваться-проектом)
-  - [Работа с проектом](https://github.com/Tiaki026/yacut?tab=readme-ov-file#работа-с-проектом)
 - [Автор](https://github.com/Tiaki026/yacut?tab=readme-ov-file#автор)
 
 ## :page_with_curl: Описание
