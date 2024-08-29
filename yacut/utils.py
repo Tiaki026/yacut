@@ -87,7 +87,7 @@ def index_view_utils(obj, db) -> Union[str, None]:
         return render_template(
             INDEX,
             form=obj,
-            short_url=BASE_URL+url_map.short,
+            short_url=BASE_URL + url_map.short,
             original_link=url_map.original
         )
 
