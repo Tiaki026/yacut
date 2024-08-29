@@ -4,15 +4,15 @@
 
 
 # Оглавление
-- [:page_with_curl: Описание](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#page_with_curl-описание)
-- [Процесс разработки, особенности и трудности](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#процесс-разработки-особенности-и-трудности)
-  - [Было изучено](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#было-изучено)
-  - [Трудности возникшие в работе](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#трудности-возникшие-в-работе)
-- [:computer: Стек технологий](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#computer-стек-технологий)
-- [:page_with_curl: Как воспользоваться проектом]()
-  - [Подготовка проекта](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#page_with_curl-как-воспользоваться-проектом)
-  - [Работа с проектом](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#работа-с-проектом)
-- [Автор](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#автор)
+- [:page_with_curl: Описание](https://github.com/Tiaki026/yacut#page_with_curl-описание)
+- [Процесс разработки, особенности и трудности](https://github.com/Tiaki026/yacut?tab=readme-ov-file#процесс-разработки-особенности-и-трудности)
+  - [Было изучено](https://github.com/Tiaki026/yacut?tab=readme-ov-file#было-изучено)
+  - [Трудности возникшие в работе](https://github.com/Tiaki026/yacut?tab=readme-ov-file#трудности-возникшие-в-работе)
+- [:computer: Стек технологий](https://github.com/Tiaki026/yacut?tab=readme-ov-file#computer-стек-технологий)
+- [:page_with_curl: Как воспользоваться проектом](https://github.com/Tiaki026/yacut#page_with_curl-как-воспользоваться-проектом)
+  - [Подготовка проекта](https://github.com/Tiaki026/yacut?tab=readme-ov-file#page_with_curl-как-воспользоваться-проектом)
+  - [Работа с проектом](https://github.com/Tiaki026/yacut?tab=readme-ov-file#работа-с-проектом)
+- [Автор](https://github.com/Tiaki026/yacut?tab=readme-ov-file#автор)
 
 ## :page_with_curl: Описание
 YaCut - сервис для укорачивания ссылок. Принцип работы прост, на сайте вас ждут всего два поля и одна кнопка. Первое поле - поле для вашей длинной ссылки, с которой будет вестись работа. Второе поле - поле, в котором будет вариант ссылки предложенный вами, либо ссылка сгенерируется автоматически.
@@ -88,4 +88,4 @@ flask run
   - [Колотиков Евгений](https://github.com/Tiaki026)
 ## 
 
-  ## [:top: Путь наверх :top:](https://github.com/Tiaki026/scrapy_parser_pep?tab=readme-ov-file#scrapy-pep-parser)
+  ## [:top: Путь наверх :top:](https://github.com/Tiaki026/yacut#оглавление)
