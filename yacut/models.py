@@ -4,15 +4,15 @@ from urllib.parse import urljoin
 
 from flask import request
 
-from settings import LONG_LENGHT_URL, SHORT_LENGTH_URL
+from settings import MAX_SHORT_LENGTH, MAX_LONG_LENGHT
 
 from . import db
 
 
 class URLMap(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    original = db.Column(db.String(LONG_LENGHT_URL), nullable=False)
-    short = db.Column(db.String(SHORT_LENGTH_URL), unique=True, nullable=False)
+    original = db.Column(db.String(MAX_LONG_LENGHT), nullable=False)
+    short = db.Column(db.String(MAX_SHORT_LENGTH), unique=True, nullable=False)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def to_dict(self) -> Dict[str, str]:

@@ -15,5 +15,13 @@ WRONG_NAME_SHORT_URL = 'Указано недопустимое имя для к
 WITHOUT_BODY = 'Отсутствует тело запроса'
 WRONG_ID = 'Указанный id не найден'
 REQUIRED_FIELD = '"url" является обязательным полем!'
-SHORT_LENGTH_URL = 16
-LONG_LENGHT_URL = 256
+MAX_SHORT_LENGTH = 16
+MAX_LONG_LENGHT = 256
+MIN_LENGHT = 1
+SUBMIT = 'Создать'
+REQUARED_FIELD = 'Обязательное поле'
+LIMIT_OR_ENTER_ERROR = (
+    'Недопустимые символы в короткой ссылке.\n'
+    'Разрешены заглавные и прописные латинские буквы, '
+    'а так же цифры.'
+)

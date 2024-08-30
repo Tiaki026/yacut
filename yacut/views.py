@@ -5,17 +5,24 @@ from settings import INDEX
 from . import app, db
 from .forms import URLMapForm
 from .models import URLMap
-from .utils import index_view_utils
+from .utils import validate_and_return, generate_short_link, create_short_link
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index_view() -> str:
     """Главная страница."""
     form = URLMapForm()
-    result = index_view_utils(form, db)
 
-    if result:
-        return result
+    if form.validate_on_submit():
+        original_link = form.original_link.data
+        short_link = form.custom_id.data
+
+        result = validate_and_return(short_link, form)
+        if result:
+            return result
+
+        short_link = generate_short_link(short_link)
+        return create_short_link(original_link, short_link, db, form)
 
     return render_template(INDEX, form=form)
 
